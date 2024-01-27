@@ -48,9 +48,9 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               child: Column(
                 children: [
                   Image.asset(
-                    "assets/images/logo.png",
-                    height: 100,
-                    width: 100,
+                    "assets/images/ComixNookLogo2.png",
+                    height: 150,
+                    width: 150,
                   ),
                   const SizedBox(
                     height: 10,
