@@ -1,7 +1,6 @@
 import 'package:comixnook_prj/components/custom_text_field.dart';
 import 'package:comixnook_prj/components/password_text_field.dart';
 import 'package:comixnook_prj/constants.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -107,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         child: Text(
                           "Forgot password?",
-                          style: TextStyle(color: Colors.grey.shade800,fontFamily: 'Gilroy'),
+                          style: TextStyle(color: Colors.grey.shade800,fontFamily: 'Gilroy',fontSize: 18.0),
                         ),
                       )),
                   SizedBox(
@@ -151,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(
                             fontFamily: 'Gilroy',
                             fontWeight: FontWeight.w500,
-                            fontSize: 18.0,
+                            fontSize: 18.5,
                             color: Colors.grey.shade800),
                       ),
                       InkWell(
@@ -162,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             "Sign up",
                             style: TextStyle(
                                 fontFamily: 'Gilroy',
-                                fontSize: 18.0,
+                                fontSize: 18.5,
                                 color: Colors.deepPurpleAccent),
                           ))
                     ],

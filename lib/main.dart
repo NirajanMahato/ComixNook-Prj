@@ -1,6 +1,7 @@
 import 'package:comixnook_prj/screens/auth/forget_password_screen.dart';
 import 'package:comixnook_prj/screens/auth/login_screen.dart';
 import 'package:comixnook_prj/screens/auth/register_screen.dart';
+import 'package:comixnook_prj/screens/dashboard/dashboard.dart';
 import 'package:comixnook_prj/screens/splash_screen.dart';
 import 'package:comixnook_prj/services/notification_service.dart';
 import 'package:comixnook_prj/viewmodels/auth_viewmodel.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
               "/splash": (BuildContext context) => SplashScreen(),
               "/register": (BuildContext context) => RegisterScreen(),
               "/forget-password": (BuildContext context) => ForgetPasswordScreen(),
+              "/dashboard": (BuildContext context) => DashboardScreen(),
             },
           );
         }),

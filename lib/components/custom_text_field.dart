@@ -24,7 +24,7 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType,
       style: const TextStyle(
         fontFamily: 'Gilroy',
-        fontSize: 16.0,
+        fontSize: 19.0,
         color: Colors.black,
       ),
       decoration: InputDecoration(
@@ -51,7 +51,7 @@ class CustomTextField extends StatelessWidget {
         hintText: hintText,
         hintStyle: TextStyle(
           fontFamily: 'Gilroy',
-          fontSize: 17.0,
+          fontSize: 18.0,
           color: Colors.black45,
         ),
       ),

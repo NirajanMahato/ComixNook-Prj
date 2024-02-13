@@ -10,7 +10,6 @@ class UserModel {
     this.id,
     this.userId,
     this.name,
-    this.phone,
     this.imageUrl,
     this.imagePath,
     this.fcm,
@@ -21,7 +20,6 @@ class UserModel {
   String? id;
   String? userId;
   String? name;
-  String? phone;
   String? imageUrl;
   String? imagePath;
   String? fcm;
@@ -32,7 +30,6 @@ class UserModel {
     id: json["id"],
     userId: json["user_id"],
     name: json["name"],
-    phone: json["phone"],
     imageUrl: json["imageUrl"],
     imagePath: json["imagePath"],
     fcm: json["fcm"],
@@ -44,7 +41,6 @@ class UserModel {
     "id": id,
     "user_id": userId,
     "name": name,
-    "phone": phone,
     "imageUrl": imageUrl,
     "imagePath": imagePath,
     "fcm": fcm,
@@ -55,7 +51,6 @@ class UserModel {
     id: json.id,
     userId: json["user_id"],
     name: json["name"],
-    phone: json["phone"],
     imageUrl: json["imageUrl"],
     imagePath: json["imagePath"],
     fcm: json["fcm"],

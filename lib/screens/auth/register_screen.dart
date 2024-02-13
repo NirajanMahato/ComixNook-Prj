@@ -47,7 +47,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
           UserModel(
               email: _emailController.text,
               password: _passwordController.text,
-              phone: _phoneNumberController.text,
               name: _nameController.text
           )).then((value) {
 
@@ -91,15 +90,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     prefixIcon: Icons.person,
                     hintText: 'Full Name',
                   ),
-                  SizedBox(height: 10),
-                  CustomTextField(
-                    controller: _phoneNumberController,
-                    validator: ValidateSignup.phone,
-                    keyboardType: TextInputType.phone,
-                    prefixIcon: Icons.phone,
-                    hintText: 'Phone Number',
-                  ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 15),
                   CustomTextField(
                     controller: _emailController,
                     validator: ValidateSignup.emailValidate,
@@ -107,7 +98,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     prefixIcon: Icons.email,
                     hintText: 'Email Address',
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 15,),
                   PasswordTextField(
                     controller: _passwordController,
                     validator: (value) => ValidateSignup.password(value, _confirmPasswordController),
@@ -115,7 +106,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     prefixIcon: Icons.lock,
                     hintText: 'Password',
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 15),
                   PasswordTextField(
                     controller: _confirmPasswordController,
                     validator: (value) => ValidateSignup.password(value, _passwordController),
@@ -123,7 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     prefixIcon: Icons.lock_clock,
                     hintText: 'Confirm Password',
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 30,),
                   Container(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -143,20 +134,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       color: KPrimaryLightColor,
                     ),)),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 13,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("Already have an account? ", style: TextStyle(
+                        fontFamily: 'Gilroy',
                           color: Colors.grey.shade800,
-                        fontSize: 17.0
+                        fontSize: 18.5
                       ),),
                       InkWell(
                           onTap: (){
                             Navigator.of(context).pop();
                           },
-                          child: Text("Sign in", style: TextStyle(color: KPrimaryColor,
-                              fontSize: 17.0,fontWeight: FontWeight.w500),))
+                          child: Text("Sign in", style: TextStyle(color: Colors.deepPurpleAccent,
+                              fontSize: 18.5,fontWeight: FontWeight.w500,fontFamily: 'Gilroy'),))
                     ],
                   ),
 
@@ -186,12 +178,6 @@ class ValidateSignup{
     }
     if(!emailValid.hasMatch(value)){
       return "Please enter a valid email";
-    }
-    return null;
-  }
-  static String? phone(String? value){
-    if(value == null || value.isEmpty ){
-      return "Phone number is required";
     }
     return null;
   }

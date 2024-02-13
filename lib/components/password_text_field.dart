@@ -32,7 +32,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       keyboardType: widget.keyboardType,
       style: const TextStyle(
         fontFamily: 'Gilroy',
-        fontSize: 16.0,
+        fontSize: 19.0,
         color: Colors.black,
       ),
       decoration: InputDecoration(
@@ -59,7 +59,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         hintText: widget.hintText,
         hintStyle: TextStyle(
           fontFamily: 'Gilroy',
-          fontSize: 17.0,
+          fontSize: 18.0,
           color: Colors.black45,
         ),
         suffixIcon: GestureDetector(
