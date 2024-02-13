@@ -1,6 +1,8 @@
+import 'package:comixnook_prj/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../components/custom_text_field.dart';
 import '../../viewmodels/auth_viewmodel.dart';
 import '../../viewmodels/global_ui_viewmodel.dart';
 
@@ -55,39 +57,32 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  TextFormField(
+                  CustomTextField(
                     controller: _emailController,
+                    validator: ValidateSignup.emailValidate,
                     keyboardType: TextInputType.emailAddress,
-                    style: const TextStyle(fontFamily: 'WorkSansSemiBold', fontSize: 16.0, color: Colors.black),
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                      border: InputBorder.none,
-                      prefixIcon: const Icon(
-                        Icons.email,
-                        color: Colors.black,
-                        size: 22.0,
-                      ),
-                      hintText: 'Email Address',
-                      hintStyle: const TextStyle(fontFamily: 'WorkSansSemiBold', fontSize: 17.0),
-                    ),
+                    prefixIcon: Icons.email,
+                    hintText: 'Your email address',
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
                         style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(color: Colors.blue))),
-                          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(vertical: 20)),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(35),)),
+                          padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(vertical: 19)),
+                          backgroundColor: MaterialStateProperty.all<Color>(KPrimaryColor),
                         ),
                         onPressed: () {
                           resetPassword();
                         },
                         child: Text(
-                          "Reset Password",
-                          style: TextStyle(fontSize: 20),
+                          "Send reset link",
+                          style: TextStyle(fontSize: 22,
+                          color: KPrimaryLightColor,
+                          fontFamily: 'Gilroy'),
                         )),
                   ),
                   SizedBox(
@@ -97,8 +92,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Already know the password? ",
-                        style: TextStyle(color: Colors.grey.shade800),
+                        "Nevermind! Take me Back to ",
+                        style: TextStyle(color: Colors.grey.shade800,fontFamily: 'Gilroy',fontSize: 18.5),
                       ),
                       InkWell(
                           onTap: () {
@@ -106,7 +101,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           },
                           child: Text(
                             "Sign In",
-                            style: TextStyle(color: Colors.blue),
+                            style: TextStyle(color: Colors.deepPurpleAccent,fontFamily: 'Gilroy',fontSize: 18.5),
                           ))
                     ],
                   ),
@@ -117,5 +112,26 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         ),
       ),
     );
+  }
+}
+class ValidateSignup {
+  static String? name(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Name is required";
+    }
+    return null;
+  }
+
+  static String? emailValidate(String? value) {
+    final RegExp emailValid =
+    RegExp(
+        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+    if (value == null || value.isEmpty) {
+      return "Email is required";
+    }
+    if (!emailValid.hasMatch(value)) {
+      return "Please enter a valid email";
+    }
+    return null;
   }
 }
