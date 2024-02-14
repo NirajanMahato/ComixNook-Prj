@@ -48,14 +48,17 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Image.asset("assets/images/ComixNookLogo.png"),
-              SizedBox(height: 100,),
-              Text("ComixNook", style: TextStyle(
-                  fontSize: 22
-              ),)
-            ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                Image.asset("assets/images/ComixNookLogo.png"),
+                SizedBox(height: 100,),
+                Text("version 1.0.2", style: TextStyle(
+                    fontSize: 14
+                ),)
+              ],
+            ),
           ),
         ),
       ),
