@@ -1,3 +1,5 @@
+import 'package:comixnook_prj/constants.dart';
+import 'package:comixnook_prj/screens/account/account_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -39,8 +41,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _ui = Provider.of<GlobalUIViewModel>(context, listen: false);
       _authViewModel = Provider.of<AuthViewModel>(context, listen: false);
-      _categoryViewModel = Provider.of<CategoryViewModel>(context, listen: false);
-      _productViewModel = Provider.of<ProductViewModel>(context, listen: false);
+      // _categoryViewModel = Provider.of<CategoryViewModel>(context, listen: false);
+      // _productViewModel = Provider.of<ProductViewModel>(context, listen: false);
       getInit();
     });
     super.initState();
@@ -64,7 +66,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: SafeArea(
         child: PageView(
           controller: pageController,
-          // children: <Widget>[HomeScreen(), FavoriteScreen(), CartScreen(), AccountScreen()],
+          children: <Widget>[AccountScreen()],
           onPageChanged: _onPageChanged,
           physics: const NeverScrollableScrollPhysics(),
         ),
@@ -73,9 +75,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         currentIndex: selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: KPrimaryColor,
         unselectedItemColor: Colors.grey,
-        selectedLabelStyle: TextStyle(color: Colors.blue),
+        selectedLabelStyle: TextStyle(color: KPrimaryColor),
         unselectedLabelStyle: TextStyle(color: Colors.grey),
         type: BottomNavigationBarType.fixed,
         onTap: _itemTapped,
