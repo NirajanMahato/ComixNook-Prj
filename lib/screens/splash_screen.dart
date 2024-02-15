@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
               children: [
                 Image.asset("assets/images/ComixNookLogo.png"),
                 SizedBox(height: 100,),
-                Text("version 1.0.2", style: TextStyle(
+                Text("version 0.02.0", style: TextStyle(
                     fontSize: 14
                 ),)
               ],
