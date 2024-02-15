@@ -1,5 +1,7 @@
 import 'package:comixnook_prj/constants.dart';
 import 'package:comixnook_prj/screens/account/account_screen.dart';
+import 'package:comixnook_prj/screens/favorite/favorite_screen.dart';
+import 'package:comixnook_prj/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -66,7 +68,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: SafeArea(
         child: PageView(
           controller: pageController,
-          children: <Widget>[AccountScreen()],
+          children: <Widget>[HomeScreen(),FavoriteScreen(),AccountScreen()],
           onPageChanged: _onPageChanged,
           physics: const NeverScrollableScrollPhysics(),
         ),

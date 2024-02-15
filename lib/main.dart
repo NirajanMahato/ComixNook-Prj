@@ -1,11 +1,18 @@
 import 'package:comixnook_prj/screens/auth/forget_password_screen.dart';
 import 'package:comixnook_prj/screens/auth/login_screen.dart';
 import 'package:comixnook_prj/screens/auth/register_screen.dart';
+import 'package:comixnook_prj/screens/category/single_category_screen.dart';
 import 'package:comixnook_prj/screens/dashboard/dashboard.dart';
+import 'package:comixnook_prj/screens/product/add_product_screen.dart';
+import 'package:comixnook_prj/screens/product/edit_product_screen.dart';
+import 'package:comixnook_prj/screens/product/my_product_screen.dart';
+import 'package:comixnook_prj/screens/product/single_product_screen.dart';
 import 'package:comixnook_prj/screens/splash_screen.dart';
 import 'package:comixnook_prj/services/notification_service.dart';
 import 'package:comixnook_prj/viewmodels/auth_viewmodel.dart';
+import 'package:comixnook_prj/viewmodels/category_viewmodel.dart';
 import 'package:comixnook_prj/viewmodels/global_ui_viewmodel.dart';
+import 'package:comixnook_prj/viewmodels/product_viewmodel.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,6 +39,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => GlobalUIViewModel()),
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
+        ChangeNotifierProvider(create: (_) => CategoryViewModel()),
+        ChangeNotifierProvider(create: (_) => ProductViewModel()),
       ],
       child: OverlayKit(
         child: Consumer<GlobalUIViewModel>(builder: (context, loader, child) {
@@ -54,6 +63,11 @@ class MyApp extends StatelessWidget {
               "/register": (BuildContext context) => RegisterScreen(),
               "/forget-password": (BuildContext context) => ForgetPasswordScreen(),
               "/dashboard": (BuildContext context) => DashboardScreen(),
+              "/add-product": (BuildContext context) => AddProductScreen(),
+              "/edit-product": (BuildContext context) => EditProductScreen(),
+              "/single-product": (BuildContext context) => SingleProductScreen(),
+              "/single-category": (BuildContext context) => SingleCategoryScreen(),
+              "/my-products": (BuildContext context) => MyProductScreen(),
             },
           );
         }),
