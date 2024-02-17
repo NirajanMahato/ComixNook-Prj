@@ -40,7 +40,7 @@ class _MyProductScreenState extends State<MyProductScreen> {
     return Consumer<AuthViewModel>(builder: (context, authVM, child) {
       return Scaffold(
         floatingActionButton: FloatingActionButton.extended(
-          label: Text("Add Product"),
+          label: Text("Add Comic"),
           icon: Icon(Icons.add),
           onPressed: () {
             Navigator.of(context).pushNamed("/add-product");
@@ -48,7 +48,7 @@ class _MyProductScreenState extends State<MyProductScreen> {
         ),
         appBar: AppBar(
           backgroundColor: Colors.black54,
-          title: Text("My Products"),
+          title: Text("My Comics"),
         ),
         body: RefreshIndicator(
           onRefresh: getInit,
@@ -56,7 +56,7 @@ class _MyProductScreenState extends State<MyProductScreen> {
             physics: AlwaysScrollableScrollPhysics(),
             child: Column(
               children: [
-                if (_authViewModel.myProduct != null && _authViewModel.myProduct!.isEmpty) Center(child: Text("You can add your products here")),
+                if (_authViewModel.myProduct != null && _authViewModel.myProduct!.isEmpty) Center(child: Text("You can add your comics here")),
                 if (_authViewModel.myProduct != null) ...authVM.myProduct!.map((e) => ProductWidgetList(context, e))
               ],
             ),
@@ -85,7 +85,7 @@ class _MyProductScreenState extends State<MyProductScreen> {
                   fit: BoxFit.cover,
                   errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
                     return Image.asset(
-                      'assets/images/logo.png',
+                      'assets/images/ComixNookLogo.png',
                       height: 300,
                       width: 100,
                       fit: BoxFit.cover,
@@ -121,8 +121,8 @@ class _MyProductScreenState extends State<MyProductScreen> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Delete product?'),
-            content: Text('Are you sure you want to delete this product?'),
+            title: Text('Delete comic?'),
+            content: Text('Are you sure you want to delete this comic?'),
             actions: <Widget>[
               TextButton(
                   onPressed: () {

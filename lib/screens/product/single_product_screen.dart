@@ -91,91 +91,20 @@ class _SingleProductBodyState extends State<SingleProductBody> {
                   ),
                 )
               : Scaffold(
-                  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-                  floatingActionButton: Container(
-                    height: 70,
-                    width: double.infinity,
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border(
-                        top: BorderSide(width: 1, color: Colors.black12),
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-
-                        Expanded(
-                            child:
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      if (quantity > 1) {
-                                        quantity -= 1;
-                                      }
-                                    });
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFFE6F0F5),
-                                        borderRadius: BorderRadius.circular(50)),
-                                    padding: EdgeInsets.all(5),
-                                    child: Icon(
-                                      Icons.remove,
-                                      size: 15,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Container(
-                                  child: Text(quantity.toString()),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      quantity += 1;
-                                    });
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFFE6F0F5),
-                                        borderRadius: BorderRadius.circular(50)),
-                                    padding: EdgeInsets.all(5),
-                                    child: Icon(
-                                      Icons.add,
-                                      size: 15,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        // Expanded(
-                        //   flex: 2,
-                        //     child: ElevatedButton(
-                        //   onPressed: () {
-                        //     CartRepository().addToCart(singleProductVM.product!, quantity).then((value) {
-                        //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Cart updated")));
-                        //     });
-                        //   },
-                        //   child: Text("Add to cart"),
-                        // )),
-                      ],
-                    ),
-                  ),
+                  // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+                  // floatingActionButton: Container(
+                  //   height: 70,
+                  //   width: double.infinity,
+                  //   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  //   decoration: BoxDecoration(
+                  //     color: Colors.white,
+                  //     border: Border(
+                  //       top: BorderSide(width: 1, color: Colors.black12),
+                  //     ),
+                  //   ),
+                  // ),
                   appBar: AppBar(
-                    backgroundColor: Colors.black54,
+                    backgroundColor: Colors.black38,
                     actions: [
                       Builder(builder: (context) {
                         FavoriteModel? isFavorite;
@@ -208,7 +137,7 @@ class _SingleProductBodyState extends State<SingleProductBody> {
                           errorBuilder:
                               (BuildContext context, Object exception, StackTrace? stackTrace) {
                             return Image.asset(
-                              'assets/images/logo.png',
+                              'assets/images/ComixNookLogo.png',
                               height: 400,
                               width: double.infinity,
                               fit: BoxFit.cover,
@@ -225,16 +154,6 @@ class _SingleProductBodyState extends State<SingleProductBody> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "Rs. ",
-                                  style: TextStyle(
-                                      fontSize: 30,
-                                      color: Colors.green,
-                                      fontWeight: FontWeight.w900),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
                                 Text(
                                   singleProductVM.product!.productName.toString(),
                                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),

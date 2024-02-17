@@ -58,10 +58,13 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             physics: AlwaysScrollableScrollPhysics(),
             child:
             authVM.favoriteProduct == null ?
-            Column(
-              children: [
-                Center(child: Text("Something went wrong")),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0,horizontal: 8.0),
+              child: Column(
+                children: [
+                  Center(child: Text("You haven't saved any comic to your favorite list yet.")),
+                ],
+              ),
             ) :
             authVM.favoriteProduct!.length == 0
                 ? Column(
@@ -96,7 +99,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                     errorBuilder: (BuildContext context,
                                         Object exception, StackTrace? stackTrace) {
                                       return Image.asset(
-                                        'assets/images/logo.png',
+                                        'assets/images/ComixNookLogo.png',
                                         width: 100,
                                         fit: BoxFit.cover,
                                       );

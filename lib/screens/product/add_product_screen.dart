@@ -17,7 +17,7 @@ class AddProductScreen extends StatefulWidget {
 
 class _AddProductScreenState extends State<AddProductScreen> {
   TextEditingController _productNameController = TextEditingController();
-  TextEditingController _productPriceController = TextEditingController();
+  // TextEditingController _productPriceController = TextEditingController();
   TextEditingController _productDescriptionController = TextEditingController();
   String productCategory = "";
   void saveProduct() async{
@@ -113,7 +113,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black54,
-        title: Text("Add a product"),
+        title: Text("Add a comic"),
       ),
       body: Consumer<CategoryViewModel>(
           builder: (context, categoryVM, child) {
@@ -140,25 +140,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                             borderRadius: BorderRadius.circular(20)
                         ),
                         border: InputBorder.none,
-                        label: Text("Product Name"),
-                        hintText: 'Enter product name',
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    TextFormField(
-                      controller: _productPriceController,
-                      // validator: ValidateProduct.username,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20)
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20)
-                        ),
-                        border: InputBorder.none,
-                        label: Text("Product Price"),
-                        hintText: 'Enter product price',
+                        label: Text("Comic Name"),
+                        hintText: 'Enter comic name',
                       ),
                     ),
                     SizedBox(height: 10,),
@@ -175,8 +158,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                             borderRadius: BorderRadius.circular(20)
                         ),
                         border: InputBorder.none,
-                        label: Text("Product Description"),
-                        hintText: 'Enter product description',
+                        label: Text("Comic Description"),
+                        hintText: 'Enter comic description',
                       ),
                     ),
                     SizedBox(height: 15,),
