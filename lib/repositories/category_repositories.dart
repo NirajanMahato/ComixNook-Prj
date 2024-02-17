@@ -1,23 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 import '../models/category_model.dart';
-import '../models/user_model.dart';
 import '../services/firebase_service.dart';
 
-class CategoryRepository {
-  CollectionReference<CategoryModel> categoryRef =
-      FirebaseService.db.collection("categories").withConverter<CategoryModel>(
-            fromFirestore: (snapshot, _) {
-              return CategoryModel.fromFirebaseSnapshot(snapshot);
-            },
-            toFirestore: (model, _) => model.toJson(),
-          );
+class CategoryRepository{
+  CollectionReference<CategoryModel> categoryRef = FirebaseService.db.collection("genre")
+      .withConverter<CategoryModel>(
+    fromFirestore: (snapshot, _) {
+      return CategoryModel.fromFirebaseSnapshot(snapshot);
+    },
+    toFirestore: (model, _) => model.toJson(),
+  );
   Future<List<QueryDocumentSnapshot<CategoryModel>>> getCategories() async {
     try {
       var data = await categoryRef.get();
       bool hasData = data.docs.isNotEmpty;
-      if (!hasData) {
+      if(!hasData){
         makeCategory().forEach((element) async {
           await categoryRef.add(element);
         });
@@ -31,12 +29,12 @@ class CategoryRepository {
     }
   }
 
-  Future<DocumentSnapshot<CategoryModel>> getCategory(String categoryId) async {
-    try {
+  Future<DocumentSnapshot<CategoryModel>>  getCategory(String categoryId) async {
+    try{
       print(categoryId);
       final response = await categoryRef.doc(categoryId).get();
       return response;
-    } catch (e) {
+    }catch(e){
       rethrow;
     }
   }
@@ -44,30 +42,29 @@ class CategoryRepository {
   List<CategoryModel> makeCategory() {
     return [
       CategoryModel(
-          categoryName: "Mobile Phones and Accessories",
+          categoryName: "Dark Knight",
           status: "active",
-          imageUrl:
-              "5.imimg.com/data5/SELLER/Default/2023/4/302728285/ZH/WS/BR/69896726/mobile-phone-accessories.png"),
+          imageUrl: "https://wallpapercave.com/wp/ueXZuuo.jpg"),
       CategoryModel(
-          categoryName: "Automobile",
+          categoryName: "Marvel Comics",
           status: "active",
           imageUrl:
-              "https://i2-prod.dailyrecord.co.uk/incoming/article25217715.ece/ALTERNATES/s615/0_Daily-Record-Road-Record.jpg"),
+              "https://i.pinimg.com/564x/e6/4b/80/e64b80f40cd9f3f79fb6f7427271aa8c.jpg"),
       CategoryModel(
-          categoryName: "Apparel",
+          categoryName: "DC Comics",
           status: "active",
           imageUrl:
-              "https://www.techprevue.com/wp-content/uploads/2016/05/online-apparel-business.jpg"),
+              "https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/10/DC-Acquired-Heroes.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5"),
       CategoryModel(
-          categoryName: "Computers and Peripherals",
+          categoryName: "Invincible",
           status: "active",
           imageUrl:
-              "https://i2.wp.com/d3d2ir91ztzaym.cloudfront.net/uploads/2020/07/computer-peripherals.jpeg"),
+              "https://images.augustman.com/wp-content/uploads/sites/3/2023/07/19123802/invincible-comic-series.jpg?tr=w-1920"),
       CategoryModel(
-          categoryName: "Music Instruments",
+          categoryName: "The Boys",
           status: "active",
           imageUrl:
-              "https://img.texasmonthly.com/2013/04/ESSENTIALS_680X382.jpg"),
+              "https://m.media-amazon.com/images/I/61189R+UonL._SY445_SX342_.jpg"),
     ];
   }
 }

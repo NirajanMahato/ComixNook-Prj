@@ -157,7 +157,7 @@ class _EditProductBodyState extends State<EditProductBody> {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.black54,
-            title: Text("Edit a product"),
+            title: Text("Edit a comic"),
           ),
           body: Consumer<CategoryViewModel>(builder: (context, categoryVM, child) {
             return SafeArea(
@@ -179,23 +179,8 @@ class _EditProductBodyState extends State<EditProductBody> {
                           enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                           focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                           border: InputBorder.none,
-                          label: Text("Product Name"),
-                          hintText: 'Enter product name',
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      TextFormField(
-                        controller: _productPriceController,
-                        // validator: ValidateProduct.username,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                          focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                          border: InputBorder.none,
-                          label: Text("Product Price"),
-                          hintText: 'Enter product price',
+                          label: Text("Comic Name"),
+                          hintText: 'Enter comic name',
                         ),
                       ),
                       SizedBox(
@@ -210,8 +195,8 @@ class _EditProductBodyState extends State<EditProductBody> {
                           enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                           focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                           border: InputBorder.none,
-                          label: Text("Product Description"),
-                          hintText: 'Enter product description',
+                          label: Text("Comic Description"),
+                          hintText: 'Enter comic description',
                         ),
                       ),
                       SizedBox(

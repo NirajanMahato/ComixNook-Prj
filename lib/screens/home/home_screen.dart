@@ -130,17 +130,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               children: [
-                Expanded(child: Container()),
-                Expanded(child: Image.asset("assets/images/ComixNookLogo2.png", height: 50, width: 50,)),
-                Expanded(
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                        child: Container()
-                        // Icon(Icons.search, size: 30,)
-                    )),
+                Align(alignment:Alignment.centerLeft,child: Image.asset("assets/images/ComixNookLogo.png", height: 60, width: 130,)),
               ],
             )));
   }
@@ -153,15 +146,15 @@ class _HomeScreenState extends State<HomeScreen> {
         Container(
             margin: EdgeInsets.symmetric(horizontal: 10),
             child: Text(
-              "Welcome,",
+              "Genres",
               style: GoogleFonts.poppins(fontSize: 30, fontWeight: FontWeight.bold),
             )),
-        Container(
-            margin: EdgeInsets.symmetric(horizontal: 10),
-            child: Text(
-              authVM.loggedInUser != null ? authVM.loggedInUser!.name.toString() : "Guest",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            )),
+        // Container(
+        //     margin: EdgeInsets.symmetric(horizontal: 10),
+        //     child: Text(
+        //       authVM.loggedInUser != null ? authVM.loggedInUser!.name.toString() : "Guest",
+        //       style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        //     )),
       ],
     );
   }
@@ -191,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   alignment: Alignment.bottomCenter,
                   child: Container(
                       width: double.infinity,
-                      decoration: BoxDecoration(color: Colors.white70),
+                      decoration: BoxDecoration(color: Colors.white60),
                       child: Text(
                         e.categoryName.toString() + "\n",
 
